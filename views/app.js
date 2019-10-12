@@ -20,3 +20,12 @@ document.addEventListener('click', (event) => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('http://localhost:3000/settings', {
+        method: 'get'
+    }).then((response) => {
+        return response.json();
+    }).then((data) => {
+        document.getElementById('root').innerHTML = `<pre>${JSON.stringify(data)}</pre>`;
+    });
+}, false);
